@@ -7,4 +7,12 @@
     <h1>Restaurants</h1>
   </div>
 
+  <% @restaurants.each do |restaurant| %>
+    <%= link_to "#{restaurant.name}", restaurant_path(restaurant) %><br>
+    <%= restaurant.phone_number %><br>
+    <%= restaurant.hours %><br>
+    <%= restaurant.website %><br>
+    <%= restaurant.description %><br><hr>
+    <% end %>
+
 </div>
