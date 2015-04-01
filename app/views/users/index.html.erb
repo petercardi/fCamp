@@ -1,0 +1,16 @@
+<div class="container">
+
+  <div class="page-header">
+    <div class="pull-right">
+      <%= link_to "New User", new_user_path, class: "btn btn-info" %>
+    </div>
+    <h2>Hungry Hungry Users</h2>
+  </div>
+
+  <% @users.each do |user| %>
+    <%= link_to "#{user.first_name} #{user.last_name}", user_path(user)%>
+    <%= user.email %>
+    <%= user.about_me %>
+  <% end %>
+
+</div>
