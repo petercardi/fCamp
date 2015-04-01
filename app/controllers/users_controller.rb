@@ -40,10 +40,6 @@ class UsersController < ApplicationController
     redirect_to users_path, notice: "User was successfully deleted"
   end
 
-  def fnln
-    "#{user.first_name} #{user.last_name}"
-  end
-
   private
 
     def user_params

@@ -6,8 +6,6 @@ gem 'rails_12factor', group: :production
 
 gem 'pg'
 
-# gem 'sqlite3'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 

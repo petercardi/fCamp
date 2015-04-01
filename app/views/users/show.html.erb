@@ -5,7 +5,7 @@
       <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-info"%>
       <%= link_to 'Delete', @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
     </div>
-    <h1>Details for <%= @user.first_name + ' ' + @user.last_name %></h1>
+    <h1>Details for <%= @user.fnln %></h1>
   </div>
 
   <dl class="dl-horizontal">
@@ -16,5 +16,12 @@
     <dt>About me:</dt>
     <dd><%= @user.about_me %></dd>
   </dl>
+
+  <h2><%= @user.fnln %>'s reviews</h2>
+  <% @user.reviews.each do |review| %>
+    <%= link_to "#{review.restaurant.name}", restaurant_path(review.restaurant) %>
+    <%= review.rating %>
+    <%= review.body %>
+  <% end %>
 
 </div>
