@@ -2,7 +2,7 @@
 
   <div class="page-header">
     <div class="pull-right">
-      <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-info" %>
+      <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-primary" %>
       <%= link_to "Delete", @restaurant, method: :delete, data: {confirm: "By clicking OK, you are certifying that the restaurant is permanently closed, and further agreeing that you understand the penalty for unwarranted deletion is to allow our moderators to tar and feather you and your little dog, too."}, class: "btn btn-danger" %>
     </div>
     <h1><%= @restaurant.name %></h1>
@@ -23,12 +23,14 @@
 
   <div class="container">
     <div class="pull-right">
-      <%= link_to "Write Review", new_restaurant_review_path(@restaurant), class: "btn btn-info" %>
+      <h2><%= link_to "Write Review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %></h2>
     </div>
     <h2>Reviews</h2>
   </div>
   <% @restaurant.reviews.each do |review| %>
-    <p>Written by <%= link_to "#{review.user.fnln}", user_path(review.user) %>
+    <% if review.user %>
+      <p>Written by <%= link_to "#{review.user.fnln}", user_path(review.user) %>
+    <% end %>
     <%= review.rating %>
     <%= review.body %>
   <% end %>

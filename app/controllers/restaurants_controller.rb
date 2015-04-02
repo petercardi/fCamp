@@ -1,7 +1,8 @@
 class RestaurantsController < ApplicationController
+  before_action :set_user, only: [:new, :create, :update, :destroy]
 
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.all.order("LOWER(name)")
   end
 
   def new
@@ -9,7 +10,6 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    restaurant_params = params.require(:restaurant).permit(:name, :address, :phone_number, :hours, :website, :description)
     @restaurant = Restaurant.new(restaurant_params)
 
     if @restaurant.save
@@ -31,9 +31,13 @@ class RestaurantsController < ApplicationController
 
   def update
     @restaurant = Restaurant.find(params[:id])
-    restaurant_params = params.require(:restaurant).permit(:name, :address, :phone_number, :hours, :website, :description)
-    @restaurant.update(restaurant_params)
-    redirect_to restaurants_path, notice: "Restaurant profile was successfully updated."
+
+    if @restaurant.update(restaurant_params)
+      redirect_to restaurants_path, notice: "Restaurant profile was successfully updated."
+    else
+      render :edit
+    end
+
   end
 
   def destroy
@@ -45,6 +49,10 @@ private
 
   def restaurant_params
     params.require(:restaurant).permit(:name, :address, :phone_number, :hours, :website, :description)
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
   end
 
 end

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/about', to: 'about#index'
 
   resources :restaurants do
-    resources :reviews, shallow: true
+    resources :reviews
   end
 
   resources :users do

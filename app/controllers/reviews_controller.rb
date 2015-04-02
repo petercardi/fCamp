@@ -1,8 +1,10 @@
 class ReviewsController < ApplicationController
-  before_action :set_restaurant
+  before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:show, :edit, :new, :create, :update, :destroy]
 
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.all.order("LOWER(name)")
+    @reviews = Review.all
   end
 
   def new
@@ -21,21 +23,19 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = Review.find(params[:id])
   end
 
   def edit
-    @review = Review.find(params[:id])
+
   end
 
   def update
-    @review = Review.find(params[:id])
     @review.update(review_params)
     redirect_to reviews_path, notice: "Review was successfully updated"
   end
 
   def destroy
-    review.find(params[:id]).destroy
+    @review.destroy
     redirect_to reviews_path, notice: "Review was successfully deleted"
   end
 
@@ -46,7 +46,15 @@ private
   end
 
   def set_restaurant
-    @restaurant = Restaurant.find(params[:restaurant_id])
+    if params[:restaurant_id]
+      @restaurant = Restaurant.find(params[:restaurant_id])
+    else
+      @restaurant = @review.restaurant
+    end
+  end
+
+  def set_review
+    @review = Review.find(params[:id])
   end
 
 end

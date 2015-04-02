@@ -2,7 +2,7 @@
 
   <div class="page-header">
     <div class="pull-right">
-      <%= link_to 'Edit', edit_review_path(@review), class: "btn btn-info" %>
+      <%= link_to 'Edit', edit_review_path(@review), class: "btn btn-primary" %>
       <%= link_to 'Delete', review_path(@review), method: :delete, data: {confirm: "Are you suuuure?"}, class: "btn btn-danger" %>
     </div>
     <h1><%= "#{@review.restaurant.name}: #{@review.header}" %></h1>
