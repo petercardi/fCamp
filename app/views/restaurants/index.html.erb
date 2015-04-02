@@ -6,12 +6,13 @@
     </div>
     <h1>Restaurants</h1>
   </div>
-
-  <% @restaurants.each do |restaurant| %>
-    <%= link_to "#{restaurant.name}", restaurant_path(restaurant) %><br>
+  <%   %>
+  <% @restaurants.order('name ASC').all.each do |restaurant| %>
+    <h4><%= link_to "#{restaurant.name}", restaurant_path(restaurant) %></h4><br>
+    <%= restaurant.address %><br>
     <%= restaurant.phone_number %><br>
     <%= restaurant.hours %><br>
-    <%= restaurant.website %><br>
+    <%= link_to "#{restaurant.website}", "http://#{restaurant.website}" %><br>
     <%= restaurant.description %><br><hr>
   <% end %>
 

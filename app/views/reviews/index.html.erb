@@ -1,0 +1,20 @@
+<div class="container">
+
+  <div class="page-header">
+    <h2>Reviews</h2>
+  </div>
+
+  <% @restaurants.each do |restaurant| %>
+    <h3><%= link_to "#{restaurant.name}", restaurant_path(restaurant) %></h3>
+      <div class="pull-right">
+        <%= link_to "Review this Restaurant", new_restaurant_review_path(restaurant), class: "btn btn-info" %>
+      </div>
+    <% restaurant.reviews.each do |review| %>
+      <p><%= link_to "#{review.header}", review_path(review)%></p>
+      <p>by: <%= review.user.fnln %></p>
+      <p><%= review.rating %></p>
+      <p><%= review.body %></p>
+    <% end %>
+  <% end %>
+
+</div>

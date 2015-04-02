@@ -1,0 +1,12 @@
+<div class="container">
+
+  <div class="page-header">
+    <div class="pull-right">
+      <%= link_to "Delete", @review, method: :delete, data: {confirm: "Are you suuuure?"}, class: "btn btn-danger" %>
+    </div>
+    <h2>Edit review of "<%= @restaurant.name %>"</h2>
+  </div>
+
+  <%= render 'form' %>
+
+</div>

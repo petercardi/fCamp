@@ -5,12 +5,10 @@
       <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-info" %>
       <%= link_to "Delete", @restaurant, method: :delete, data: {confirm: "By clicking OK, you are certifying that the restaurant is permanently closed, and further agreeing that you understand the penalty for unwarranted deletion is to allow our moderators to tar and feather you and your little dog, too."}, class: "btn btn-danger" %>
     </div>
-    <h2>Profile for <%= @restaurant.name %></h2>
+    <h1><%= @restaurant.name %></h1>
   </div>
 
   <dl class="dl-horizontal">
-    <dt>Restaurant:</dt>
-    <dd><%= @restaurant.name %></dd>
     <dt>Address:</dt>
     <dd><%= @restaurant.address %></dd>
     <dt>Phone number:</dt>
@@ -18,12 +16,12 @@
     <dt>Hours:</dt>
     <dd><%= @restaurant.hours %></dd>
     <dt>Website:</dt>
-    <dd><%= @restaurant.website %></dd>
+    <dd><%=  @restaurant.website %></dd>
     <dt>Description:</dt>
     <dd><%= @restaurant.description %></dd>
   </dl>
 
-  <h2>Reviews of <%= @restaurant.name %></h2>
+  <h2>Reviews</h2>
   <% @restaurant.reviews.each do |review| %>
     <p>Written by <%= link_to "#{review.user.fnln}", user_path(review.user) %>
     <%= review.rating %>

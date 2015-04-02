@@ -1,0 +1,36 @@
+<div class="container">
+
+  <%= form_for [@restaurant, @review], html: {class: "form-horizontal"} do |f| %>
+
+    <div class="form-group">
+      <%= f.label :header, class: "col-sm-2 control-label" %>
+        <div class="col-sm-6">
+          <%= f.text_field :header, class: "form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :rating, class: "col-sm-2 control-label" %>
+        <div class="col-sm-6">
+          <%= f.number_field :rating, class: "form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :body, class: "col-sm-2 control-label" %>
+        <div class="col-sm-6">
+          <%= f.text_area :body, class: "form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <div class="actions">
+        <div class="col-sm-4 col-sm-offset-2">
+          <%= f.submit class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+
+</div>
