@@ -2,6 +2,8 @@
 
   <%= form_for [@restaurant, @review], html: {class: "form-horizontal"} do |f| %>
 
+    <%= render "shared/errors", thing: @review, thing_string: "review" %>
+
     <div class="form-group">
       <%= f.label :header, class: "col-sm-2 control-label" %>
         <div class="col-sm-6">

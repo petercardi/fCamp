@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
+  get '/about', to: 'about#index'
+
   resources :restaurants do
     resources :reviews, shallow: true
   end

@@ -15,6 +15,7 @@ class RestaurantsController < ApplicationController
     if @restaurant.save
       redirect_to restaurants_path, notice: "Restaurant profile was successfully created."
     else
+      flash[:notice] = "Restaurant could not be saved"
       render :new
     end
 

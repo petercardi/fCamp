@@ -42,7 +42,7 @@ class ReviewsController < ApplicationController
 private
 
   def review_params
-    params.require(:task).permit(:header, :rating, :body)
+    params.require(:review).permit(:header, :rating, :body)
   end
 
   def set_restaurant
