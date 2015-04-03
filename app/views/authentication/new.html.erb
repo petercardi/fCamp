@@ -1,9 +1,18 @@
-Sign In
+<div class="container">
 
-<%= form_tag sign_in_path do |f| %>
-<%= label_tag :email %>
-<%= email_field_tag :email %>
-<%= label_tag :password %>
-<%= password_field_tag :password %>
-<%= submit_tag "Sign In"%>
-<% end %>
+  <div class="page-header">
+    <h1>Sign In</h1>
+  </div>
+
+  <%= form_tag sign_in_path, method: "post" do %>
+
+    <%= label_tag :email %>
+    <%= email_field_tag :email %>
+\    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+
+    <%= submit_tag "Sign In", class: "btn btn-primary" %>
+
+  <% end %>
+
+</div>

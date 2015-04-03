@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_user, only: [:new, :create, :update, :destroy]
+  # before_action :set_user, only: [:new, :create, :update, :destroy]
 
   def index
     @restaurants = Restaurant.all.order("LOWER(name)")

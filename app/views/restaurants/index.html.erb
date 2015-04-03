@@ -9,6 +9,9 @@
 
   <% @restaurants.each do |restaurant| %>
     <dl class="dl-horizontal">
+      <div class="pull-right">
+        <%= link_to "Review this Restaurant", new_restaurant_review_path(restaurant), class: "btn btn-primary" %>
+      </div>
       <dd><h3><%= link_to "#{restaurant.name}", restaurant_path(restaurant) %></h3></dd>
       <dt>Address:</dt>
       <dd><%= restaurant.address %></dd>

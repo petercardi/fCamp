@@ -30,7 +30,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    user_params = params.require(:user).permit(:first_name, :middle_name, :last_name, :email, :about_me)
     @user.update(user_params)
     redirect_to users_path, notice: "User was successfully updated"
   end
@@ -43,7 +42,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:first_name, :middle_name, :last_name, :email, :about_me)
+      params.require(:user).permit(:first_name, :middle_name, :last_name, :email, :about_me, :password)
     end
 
 end

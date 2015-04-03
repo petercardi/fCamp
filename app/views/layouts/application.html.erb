@@ -8,13 +8,34 @@
 </head>
 
 <body>
+
   <nav class="navbar navbar-custom">
     <div class="container">
-      <a class="navbar-brand" href="/">
-        fCamp
-      </a>
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+          fCamp
+        </a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-custom navbar-right">
+        <% if current_user %>
+          <li>
+            <%= link_to "#{current_user.first_name} #{current_user.last_name}", current_user %>
+          </li>
+          <li>
+            <%= link_to "Sign Out", sign_out_path %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "Sign Up", sign_up_path %>
+          </li>
+          <li>
+            <%= link_to "Sign In", sign_in_path %>
+          </li>
+        <% end %>
+      </ul>
     </div>
-  </nav>
+</nav>
 
 <!-- stick your flash notice container here  -->
 
