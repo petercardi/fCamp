@@ -33,9 +33,16 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :about_me, class: "col-sm-2 control-label" %>
+      <%= f.label :likes, class: "col-sm-2 control-label" %>
         <div class="col-sm-6">
-          <%= f.text_area :about_me, class: "form-control" %>
+          <%= f.text_area :likes, class: "form-control" %>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :dislikes, class: "col-sm-2 control-label" %>
+        <div class="col-sm-6">
+          <%= f.text_area :dislikes, class: "form-control" %>
         </div>
     </div>
 
@@ -45,7 +52,7 @@
           <%= f.password_field :password, class: "form-control" %>
         </div>
     </div>
-    
+
     <div class="form-group">
       <%= f.label :password_confirmation, class: "col-sm-2 control-label" %>
         <div class="col-sm-6">

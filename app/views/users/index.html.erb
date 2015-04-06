@@ -11,11 +11,13 @@
     <dl class="dl-horizontal">
       <p>
         <dt> </dt>
-        <dd><h4><%= link_to "#{user.first_name} #{user.last_name}", user_path(user)%></h4></dd>
+        <dd><h4><%= link_to "#{user.fnln}", user_path(user)%></h4></dd>
         <dt>Email:</dt>
         <dd><%= user.email %></dd>
-        <dt>About me:</dt>
-        <dd><%= user.about_me %></dd>
+        <dt>Likes:</dt>
+        <dd><%= user.likes %></dd>
+        <dt>Dislikes:</dt>
+        <dd><%= user.dislikes %></dd>
       </p>
   <% end %>
 
