@@ -9,9 +9,11 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :reviews, shallow: true
+    resources :quotes, except: [:new], shallow: true
   end
 
   resources :reviews, only: [:index]
+  resources :quotes, only: [:index, :new]
 
   get "sign-up", to: "registrations#new"
   post "sign-up", to: "registrations#create"

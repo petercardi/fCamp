@@ -16,7 +16,7 @@
     <dt>Hours:</dt>
     <dd><%= @restaurant.hours %></dd>
     <dt>Website:</dt>
-    <dd><%=  @restaurant.website %></dd>
+    <dd><%= link_to @restaurant.website, href="http://#{@restaurant.website}" %></dd>
     <dt>Description:</dt>
     <dd><%= @restaurant.description %></dd>
   </dl>

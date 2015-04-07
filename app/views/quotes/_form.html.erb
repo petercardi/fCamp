@@ -1,0 +1,28 @@
+<%= form_for(@quote, html: { class: "form-horizontal" }) do |f| %>
+
+  <%= render 'shared/errors', thing: @quote, thing_string: "quote" %>
+
+  <div class="form-group">
+    <%= f.label :quote, class: "col-sm-2 control-label" %>
+      <div class="col-sm-6">
+        <%= f.text_area :quote, class: "form-control" %>
+      </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :author, class: "col-sm-2 control-label" %>
+      <div class="col-sm-6">
+        <%= f.text_field :author, class: "form-control" %>
+      </div>
+  </div>
+
+  <div class="form-group">
+    <div class="actions">
+      <div class="col-sm-4 col-sm-offset-2">
+        <%= f.submit class: "btn btn-primary" %>
+        <%= link_to 'Cancel', quotes_path, class: "btn btn-default" %>
+      </div>
+    </div>
+  </div>
+
+<% end %>

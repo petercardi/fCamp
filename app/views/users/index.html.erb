@@ -7,7 +7,7 @@
     <h2>Hungry Hungry Users</h2>
   </div>
 
-  <% @users.order('last_name ASC').all.each do |user| %>
+  <% @users.each do |user| %>
     <dl class="dl-horizontal">
       <p>
         <dt> </dt>

@@ -1,4 +1,4 @@
-/* magicks from Andrew Jaswa to highlight div borders inside rows */
+/* magick from Andrew Jaswa to highlight div borders inside rows */
 // .row > div{
 //   outline: 1px solid blue;
 // }
@@ -7,22 +7,31 @@
 @import "bootstrap";
 
 /* quick and dirty margin tools */
-.pad_top {
+.pad-top {
   margin-top:5px;
 }
-.pad_bottom {
+.pad-bottom {
   margin-bottom:5px;
 }
 
+.semi-opaque {
+  background-color: rgba(255,255,255, 0.5);
+  color: inherit;
+}
+
+.slightly-opaque {
+  background-color: rgba(255,255,255, 0.9);
+  color: inherit;
+}
+
+.homepage {
+  background-image: image-url("wooden-table-background-1.jpg");
+  background-repeat: repeat;
+  background-size: 100%;
+}
 
 
-
-
-
-
-
-
-/* magicks imported from twitterbootstrap3navbars.w3masters.nl
+/* navbar magicks imported from twitterbootstrap3navbars.w3masters.nl
 */
 
 .navbar-custom {
@@ -139,7 +148,5 @@
 .navbar-custom .navbar-link:hover {
   color: #ffffff;
 }
-
-
 
 /* end magick import */

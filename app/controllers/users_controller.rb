@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
+
   helper_method :fnln
 
   def index
-    @users = User.all
+    @users = User.all.order('LOWER(last_name ASC)')
+    .order('LOWER(last_name ASC)').all
   end
 
   def new
