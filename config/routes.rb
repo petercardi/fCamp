@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  root 'static_pages#homepage'
 
-  get '/about', to: 'about#index'
+  get '/about', to: 'static_pages#about'
+  get '/terms', to: 'static_pages#terms'
+  get '/faq', to: 'static_pages#faq'
 
   resources :restaurants do
     resources :reviews

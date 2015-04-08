@@ -14,6 +14,10 @@
   margin-bottom:5px;
 }
 
+.pad-bottom-20 {
+  margin-bottom:20px;
+}
+
 .semi-opaque {
   background-color: rgba(255,255,255, 0.5);
   color: inherit;
@@ -25,11 +29,16 @@
 }
 
 .homepage {
-  background-image: image-url("wooden-table-background-1.jpg");
+  background-image: image-url("wooden-table-background-5.jpg");
   background-repeat: repeat;
-  background-size: 100%;
+  background-size: cover;
 }
 
+.div-center {
+  width: 666px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* navbar magicks imported from twitterbootstrap3navbars.w3masters.nl
 */
