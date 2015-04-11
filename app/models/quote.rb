@@ -4,5 +4,6 @@ class Quote < ActiveRecord::Base
 
   validates :quotation, :author, presence: true
   validates :quotation, length: { minimum: 10 }
+  validates :user_id, presence: true
 
 end

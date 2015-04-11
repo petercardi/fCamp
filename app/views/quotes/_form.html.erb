@@ -3,23 +3,23 @@
   <%= render 'shared/errors', thing: @quote, thing_string: "quote" %>
 
   <div class="form-group">
-    <%= f.label :quote, class: "col-sm-2 control-label" %>
+    <%= f.label :quotation, class: "col-sm-2 control-label" %>
       <div class="col-sm-6">
-        <%= f.text_area :quote, class: "form-control" %>
+        <%= f.text_area :quotation, class: "form-control" %>
       </div>
   </div>
 
   <div class="form-group">
     <%= f.label :author, class: "col-sm-2 control-label" %>
-      <div class="col-sm-6">
-        <%= f.text_field :author, class: "form-control" %>
-      </div>
+    <div class="col-sm-6">
+      <%= f.text_field :author, class: "form-control" %>
+    </div>
   </div>
 
   <div class="form-group">
     <div class="actions">
       <div class="col-sm-4 col-sm-offset-2">
-        <%= f.submit class: "btn btn-primary" %>
+        <%= f.submit class: "btn btn-default" %>
         <%= link_to 'Cancel', quotes_path, class: "btn btn-default" %>
       </div>
     </div>

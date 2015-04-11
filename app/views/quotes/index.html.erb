@@ -2,18 +2,39 @@
 
   <div class="page-header">
     <div class="pull-right">
-      <%= link_to "Add Quote", new_quote_path, class: "btn btn-primary" %>
+      <%= link_to "Add Quote", new_quote_path, class: "btn btn-default" %>
     </div>
     <h1>Quotes</h1>
   </div>
 
-  <%= @quotes.each do |quote| %>
-    <div class="row">
-      <div class="col-md-12">
-        <%= quote.text %>
-        <%= quote.author %>
-      </div>
+  <div class="row">
+    <strong><div class="col-md-1">
+      Added by:
     </div>
+    <div class="col-md-8">
+    </div>
+    <div class="col-md-3">
+      Author:
+  </div></strong>
+
+  <br>
+
+  <% @quotes.each do |quote| %>
+    <div class="row">
+      <div class="col-md-1">
+        <%= link_to "#{quote.user.first_name}", user_path(quote.user) %>
+      </div>
+      <div class="col-md-8">
+        <em><%= quote.quotation %></em>
+      </div>
+      <div class="col-md-3">
+        — <%= quote.author %>
+      </div>
+      <!-- <div class="col-md-1">
+        < %= link_to '', quote_path(@quote), method: :delete, class: "glyphicon glyphicon-remove" %>
+      </div> -->
+    </div>
+    <br>
   <% end %>
 
 

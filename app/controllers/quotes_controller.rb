@@ -1,12 +1,14 @@
 class QuotesController < ApplicationController
-  # before_action :set_user, only: [:show, :edit, :update, :destroy]
+
+  before_action :current_user
 
   def index
     @quotes = Quote.all.order('LOWER(author)')
   end
 
-  def show
-  end
+  # def show
+  #   @quote = Quote.find(params[:id])
+  # end
 
   def new
     @quote = Quote.new
@@ -17,6 +19,7 @@ class QuotesController < ApplicationController
 
   def create
     @quote = Quote.new(quote_params)
+    @quote.user_id = current_user.id
 
     if @quote.save
       redirect_to quotes_path, notice: 'Quote was successfully created.'
@@ -42,10 +45,6 @@ class QuotesController < ApplicationController
   end
 
 private
-
-  def set_user
-    @user = User.find(params[:user_id])
-  end
 
   def set_quote
     @quote = Quote.find(params[:quote_id])
