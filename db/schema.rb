@@ -11,15 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150406202734) do
+ActiveRecord::Schema.define(version: 20150410232555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "qcomments", force: :cascade do |t|
+    t.text     "comment"
+    t.integer  "user_id"
+    t.integer  "quote_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "quotes", force: :cascade do |t|
     t.text     "quotation"
     t.string   "author"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rcomments", force: :cascade do |t|
+    t.text     "comment"
+    t.integer  "user_id"
+    t.integer  "review_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -33,6 +49,13 @@ ActiveRecord::Schema.define(version: 20150406202734) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "beer"
+    t.boolean  "wine"
+    t.boolean  "full_bar"
+    t.boolean  "vegetarian"
+    t.boolean  "vegan"
+    t.integer  "price_range"
+    t.boolean  "quick"
   end
 
   create_table "reviews", force: :cascade do |t|

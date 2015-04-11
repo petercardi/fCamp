@@ -1,6 +1,8 @@
 class RestaurantsController < ApplicationController
   # before_action :set_user, only: [:new, :create, :update, :destroy]
 
+  helper_method :avg_rating
+
   def index
     @restaurants = Restaurant.all.order("LOWER(name)")
   end
@@ -48,7 +50,7 @@ class RestaurantsController < ApplicationController
 private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :phone_number, :hours, :website, :description)
+    params.require(:restaurant).permit(:name, :address, :phone_number, :hours, :website, :description, :quick, :vegetarian, :vegan, :beer, :wine, :full_bar, :price_range)
   end
 
   def set_user

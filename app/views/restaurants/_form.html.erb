@@ -33,9 +33,12 @@
     </div>
 
     <div class="form-group">
-      <%= r.label :website, "Website:        http://", class: "col-sm-2 control-label" %>
+      <%= r.label :website, "Website", class: "col-sm-2 control-label" %>
       <div class="col-sm-6">
-        <%= r.text_field :website, class: "form-control" %>
+        <div class="input-group">
+          <span class="input-group-addon">http://</span>
+          <%= r.text_field :website, class: "form-control" %>
+        </div>
       </div>
     </div>
 
@@ -46,15 +49,90 @@
       </div>
     </div>
 
+
+
+<div class = "form-group">
+<div class = "col-md-2 control-label">
+      <label for="checkboxes">Features</label>
+</div>
+
+
+<div class = "col-md-2">
+      <div class="checkbox">
+        <label for="checkboxes-1">
+          <%= r.check_box :quick %>
+          Reliably Quick
+        </label>
+      </div>
+
+          <div class="checkbox">
+            <label for="checkboxes-1">
+              <%= r.check_box :vegetarian %>
+              Vegetarian options
+            </label>
+        	</div>
+
+
+          <div class="checkbox">
+            <label for="checkboxes-1">
+              <%= r.check_box :vegan %>
+              Vegan options
+            </label>
+        	</div>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="checkboxes">Booze?</label>
+      <div class="col-md-4">
+        <label class="checkbox-inline" for="checkboxes-0">
+          <%= r.check_box :beer %>
+          Beer
+        </label>
+        <label class="checkbox-inline" for="checkboxes-1">
+          <%= r.check_box :wine %>
+          Wine
+        </label>
+        <label class="checkbox-inline" for="checkboxes-2">
+          <%= r.check_box :full_bar %>
+          Full Bar
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-2 control-label" for="radios">Price Range</label>
+        <div class="col-md-4">
+    <label class="radio-inline" for="radios-0">
+      <input type="radio" name="radios" id="radios-0" value="1" >
+      $
+    </label>
+    <label class="radio-inline" for="radios-1">
+      <input type="radio" name="radios" id="radios-1" value="2">
+      $$
+    </label>
+    <label class="radio-inline" for="radios-2">
+      <input type="radio" name="radios" id="radios-2" value="3">
+      $$$
+    </label>
+    <label class="radio-inline" for="radios-3">
+      <input type="radio" name="radios" id="radios-3" value="4">
+      $$$$
+    </label>
+  </div>
+</div>
+</div>
+
     <div class="form-group">
       <div class="actions">
         <div class="col-sm-4 col-sm-offset-2">
-          <%= r.submit class: "btn btn-primary" %>
+          <%= r.submit class: "btn btn-default" %>
           <%= link_to "Cancel", restaurants_path, class: "btn btn-default" %>
         </div>
       </div>
     </div>
 
-    <% end %>
+  <% end %>
 
 </div>

@@ -2,7 +2,7 @@
 
   <div class="page-header">
     <div class="pull-right">
-      <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-primary" %>
+      <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-default" %>
       <%= link_to "Delete", @restaurant, method: :delete, data: {confirm: "By clicking OK, you are certifying that the restaurant is permanently closed, and further agreeing that you understand the penalty for unwarranted deletion is to allow our moderators to tar and feather you and your little dog, too."}, class: "btn btn-danger" %>
     </div>
     <h1><%= @restaurant.name %></h1>
@@ -19,20 +19,39 @@
     <dd><%= link_to @restaurant.website, href="http://#{@restaurant.website}" %></dd>
     <dt>Description:</dt>
     <dd><%= @restaurant.description %></dd>
+    <dt>Wine?</dt>
+    <% if @restaurant.wine %>
+      <dd><span class="glyphicon glyphicon-thumbs-up"></span></dd>
+    <% end %>
+    <br>
   </dl>
 
-  <div class="container">
-    <div class="pull-right">
-      <h2><%= link_to "Write Review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %></h2>
+  <% if @restaurant.reviews.count > 0 %>
+    <div class="container">
+      <div class="pull-right">
+        <%= link_to "Write Review", new_restaurant_review_path(@restaurant), class: "btn btn-default" %>
+      </div>
+      <h2>Reviews</h2>
+        <div class="pad-top-30 text-center">
+
+          <% if @restaurant.reviews.count > 0 %>
+            <strong><font size="4">Average rating: <%= @restaurant.avg_rating %></strong></font>
+          <% else %>
+            <%= link_to "No ratings yet. Be the first!", new_restaurant_review_path(@restaurant), class: "btn btn-xs btn-default" %>
+          <% end %>
+
+        </div>
+      <br>
     </div>
-    <h2>Reviews</h2>
-  </div>
+  <% end %>
+
   <% @restaurant.reviews.each do |review| %>
     <% if review.user %>
       <p>Written by <%= link_to "#{review.user.fnln}", user_path(review.user) %>
     <% end %>
     <%= review.rating %>
     <%= review.body %>
+    <hr>
   <% end %>
 
 <!-- breadcrumbs here -->
