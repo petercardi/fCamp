@@ -1,5 +1,8 @@
+require 'pry'
+
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :current_user
   before_action :set_restaurant, only: [:show, :edit, :new, :create, :update, :destroy]
 
   def index
@@ -23,6 +26,8 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    # set_review
+    @rcomment = @review.rcomments.new
   end
 
   def edit
@@ -55,6 +60,10 @@ private
 
   def set_review
     @review = Review.find(params[:id])
+  end
+
+  def rcomment_params
+    params.require(:rcomment).permit(:comment).merge(user: current_user)
   end
 
 end

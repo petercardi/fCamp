@@ -8,20 +8,26 @@ Rails.application.routes.draw do
   resources :restaurants do
     resources :reviews
   end
+  get "/quotes/new", to: 'quotes#new'
 
   resources :users do
     resources :reviews, shallow: true
-    resources :quotes, except: [:new], shallow: true
   end
 
-  resources :reviews, only: [:index]
-  resources :quotes, only: [:index, :new]
+  resources :reviews, only: [:index] do
+    resources :rcomments
+  end
 
-  get "sign-up", to: "registrations#new"
-  post "sign-up", to: "registrations#create"
+  resources :quotes do
+    resources :qcomments
+  end
+
+  get "sign-up", to: "users#new"
+  post "sign-up", to: "users#create"
   get "sign-in", to: "authentication#new"
   post "sign-in", to: "authentication#create"
   get "sign-out", to: "authentication#destroy"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

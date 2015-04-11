@@ -4,6 +4,7 @@
     <div class="pull-right">
       <%= link_to "Delete", @user, method: :delete, data: {confirm: "Are you suuuuure?"}, class: "btn btn-danger" %>
     </div>
+    <h1>Edit profile of <%= @user.fnln %></h1>
   </div>
 
   <%= render 'form' %>

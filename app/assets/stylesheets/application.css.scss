@@ -6,18 +6,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* quick and dirty margin tools */
-.pad-top {
-  margin-top:5px;
-}
-.pad-bottom {
-  margin-bottom:5px;
-}
-
-.pad-bottom-20 {
-  margin-bottom:20px;
-}
-
 .semi-opaque {
   background-color: rgba(255,255,255, 0.5);
   color: inherit;
@@ -35,9 +23,41 @@
 }
 
 .div-center {
-  width: 666px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.center {
+     float: none;
+     margin-left: auto;
+     margin-right: auto;
+}
+
+/* quick and dirty margin tools */
+.pad-top {
+  margin-top:5px;
+}
+
+.pad-top-20 {
+  margin-bottom:20px;
+}
+
+.pad-bottom {
+  margin-bottom:5px;
+}
+
+.pad-bottom-20 {
+  margin-bottom:20px;
+}
+
+.pad-sides {
+  margin-left:8px;
+  margin-right:8px;
+}
+
+.body {
+  padding-top:80px;
 }
 
 /* navbar magicks imported from twitterbootstrap3navbars.w3masters.nl
