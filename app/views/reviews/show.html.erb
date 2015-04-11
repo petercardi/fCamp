@@ -2,10 +2,25 @@
 
   <div class="page-header">
     <div class="pull-right">
-      <%= link_to 'Edit', edit_review_path(@review), class: "btn btn-primary" %>
+      <%= link_to 'Edit', edit_review_path(@review), class: "btn btn-default" %>
       <%= link_to 'Delete', review_path(@review), method: :delete, data: {confirm: "Are you suuuure?"}, class: "btn btn-danger" %>
     </div>
     <h1><%= "#{@review.restaurant.name}: #{@review.header}" %></h1>
   </div>
+
+  <% @review.rcomments.each do |comment| %>
+    <div class="row">
+      <div class="col-md-3">
+        <% if comment.user_id %>
+          <h5>Written by <%= link_to "#{comment.user.fnln}", user_path(comment.user) %></h5
+        <% end %>
+        <%= comment.comment %>
+        <hr>
+
+      </div>
+    </div>
+  <% end %>
+
+  <%= render partial: 'rcomment_form', locals: {:review => @review} %>
 
 </div>

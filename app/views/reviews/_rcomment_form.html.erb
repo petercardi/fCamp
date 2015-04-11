@@ -1,0 +1,23 @@
+<div class="container">
+
+  <%= render 'shared/errors', thing: @rcomment, thing_string: 'comment' %>
+
+  <%= form_for([review, @rcomment], html: { class: 'form-horizontal' }) do |c| %>
+  
+    <div class="form-group">
+      <%= c.label :comment, "Comment", class: "col-sm-2 control-label" %>
+      <div class="col-sm-6">
+        <%= c.text_area :comment, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="actions">
+        <div class="col-sm-4 col-sm-offset-2">
+          <%= c.submit "My 2 cents' worth", class: "btn btn-xs btn-default" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+</div>
