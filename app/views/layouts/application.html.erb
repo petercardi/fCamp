@@ -56,26 +56,35 @@
     </div>
   </nav>
 
-<!-- stick your flash notice container here  -->
-
+  <div class="container">
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <%= notice %>
+      </div>
+    <% elsif flash[:error] %>
+      <div class="alert alert-danger">
+        <%= flash[:error] %>
+      </div>
+    <% end %>
+  </div>
   <%= yield %>
 
   <div class="container">
     <footer>
       <hr>
-      <div class="text-center btn-toolbar pad-bottom-20 div-center" role="toolbar" aria-label="...">
+      <div class="text-center btn-toolbar margin-bottom-20 div-center" role="toolbar" aria-label="...">
 
-        <div class="btn-group btn-group-lg pad-sides" role="group" aria-label="...">
+        <div class="btn-group btn-group-lg margin-sides" role="group" aria-label="...">
           <%= link_to 'About', about_path, class: "btn btn-default semi-opaque" %></button>
           <%= link_to 'Terms', terms_path, class: "btn btn-default semi-opaque" %></button>
           <%= link_to 'FAQ', faq_path, class: "btn btn-default semi-opaque" %></button>
         </div>
 
-        <div class="btn-group btn-group-lg pad-sides" role="group" aria-label="...">
+        <div class="btn-group btn-group-lg margin-sides" role="group" aria-label="...">
           <%= link_to 'Users', users_path, class: "btn btn-default semi-opaque" %>
         </div>
 
-        <div class="btn-group btn-group-lg pad-sides" role="group" aria-label="...">
+        <div class="btn-group btn-group-lg margin-sides" role="group" aria-label="...">
           <%= link_to 'Restaurants', restaurants_path, class: "btn btn-default semi-opaque" %>
           <%= link_to 'Reviews', reviews_path, class: "btn btn-default semi-opaque" %>
           <%= link_to 'Quotes', quotes_path, class: "btn btn-default semi-opaque" %>

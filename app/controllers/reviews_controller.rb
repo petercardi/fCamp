@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :current_user
   before_action :set_restaurant, only: [:show, :edit, :new, :create, :update, :destroy]
+  before_action :ensure_current_user, except: [:index, :show]
 
   def index
     @restaurants = Restaurant.all.order("LOWER(name)")
@@ -64,6 +65,13 @@ private
 
   def rcomment_params
     params.require(:rcomment).permit(:comment).merge(user: current_user)
+  end
+
+  def ensure_current_user
+    unless current_user
+      redirect_to sign_in_path
+      flash[:error] = "You must be signed in to do that, yo!"
+    end
   end
 
 end

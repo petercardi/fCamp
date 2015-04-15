@@ -32,7 +32,7 @@
         <%= link_to "Write Review", new_restaurant_review_path(@restaurant), class: "btn btn-default" %>
       </div>
       <h2>Reviews</h2>
-        <div class="pad-top-30 text-center">
+        <div class="margin-top-30 text-center">
 
           <% if @restaurant.reviews.count > 0 %>
             <strong><font size="4">Average rating: <%= @restaurant.avg_rating %></strong></font>

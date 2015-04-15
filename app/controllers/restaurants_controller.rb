@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
   # before_action :set_user, only: [:new, :create, :update, :destroy]
+  before_action :ensure_current_user, except: [:index, :show]
 
   helper_method :avg_rating
 
@@ -55,6 +56,13 @@ private
 
   def set_user
     @user = User.find(params[:user_id])
+  end
+
+  def ensure_current_user
+    unless current_user
+      redirect_to sign_in_path
+      flash[:error] = "You must be signed in to do that, yo!"
+    end
   end
 
 end

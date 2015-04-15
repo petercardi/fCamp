@@ -1,9 +1,11 @@
 <div class="container">
 
   <div class="page-header">
-    <div class="pull-right">
-      <%= link_to "Add Restaurant", new_restaurant_path, class: "btn btn-default" %>
-    </div>
+    <% if current_user %>
+      <div class="pull-right">
+        <%= link_to "Add Restaurant", new_restaurant_path, class: "btn btn-default" %>
+      </div>
+    <% end %>
     <h1>Restaurants</h1>
   </div>
 
