@@ -19,8 +19,28 @@
     <dd><%= link_to @restaurant.website, href="http://#{@restaurant.website}" %></dd>
     <dt>Description:</dt>
     <dd><%= @restaurant.description %></dd>
-    <dt>Wine?</dt>
     <% if @restaurant.wine %>
+      <dt>Wine</dt>
+      <dd><span class="glyphicon glyphicon-thumbs-up"> </span></dd>
+    <% end %>
+    <% if @restaurant.beer %>
+      <dt>Beer</dt>
+      <dd><span class="glyphicon glyphicon-thumbs-up"> </span></dd>
+    <% end %>
+    <% if @restaurant.full_bar %>
+      <dt>Full Bar</dt>
+      <dd><span class="glyphicon glyphicon-thumbs-up"> </span></dd>
+    <% end %>
+    <% if @restaurant.vegetarian %>
+      <dt>Vegetarian options</dt>
+      <dd><span class="glyphicon glyphicon-thumbs-up"></span></dd>
+    <% end %>
+    <% if @restaurant.vegan %>
+      <dt>Vegan options</dt>
+      <dd><span class="glyphicon glyphicon-thumbs-up"></span></dd>
+    <% end %>
+    <% if @restaurant.quick %>
+      <dt>Reliably quick</dt>
       <dd><span class="glyphicon glyphicon-thumbs-up"></span></dd>
     <% end %>
     <br>
