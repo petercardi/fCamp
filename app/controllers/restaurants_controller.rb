@@ -21,7 +21,6 @@ class RestaurantsController < ApplicationController
       flash[:notice] = "Restaurant could not be saved"
       render :new
     end
-
   end
 
   def show

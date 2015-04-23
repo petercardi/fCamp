@@ -43,10 +43,16 @@
       <dt>Reliably quick</dt>
       <dd><span class="glyphicon glyphicon-thumbs-up"></span></dd>
     <% end %>
+    <% if @restaurant.price_range %>
+      <dt>Price Range</dt>
+      <% @restaurant.price_range.times do %>
+        <dd><span class="glyphicon glyphicon-usd"></span></dd>
+      <% end %>
+    <% end %>
     <br>
   </dl>
 
-  <% if @restaurant.reviews.count > 0 %>
+  <% if @restaurant.reviews %>
     <div class="container">
       <div class="pull-right">
         <%= link_to "Write Review", new_restaurant_review_path(@restaurant), class: "btn btn-default" %>
