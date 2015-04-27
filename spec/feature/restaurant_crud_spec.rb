@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-feature 'Restaurants' do
+feature 'Restaurants CRUD' do
+
   before do
     user = User.create(first_name: "joe", last_name: "schmo", password: "password", email: "email@all.com")
     visit root_path
@@ -43,8 +44,15 @@ feature 'Restaurants' do
     expect(page).to have_content('Restaurant profile was successfully updated.')
   end
 
-  scenario 'user can delete restaurants'
-    visit
-
+  scenario 'user can delete restaurants' do
+    visit restaurants_path
+    click_on 'Add Restaurant'
+    fill_in 'Name', with: 'nettles'
+    fill_in 'Hours', with: 'laaaate'
+    click_on 'Create Restaurant'
+    click_on 'nettles'
+    click_on 'Delete'
+    expect(page).to have_content('Restaurant was successfully burned to the ground.')
+  end
 
 end

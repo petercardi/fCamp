@@ -44,7 +44,8 @@ class RestaurantsController < ApplicationController
 
   def destroy
     Restaurant.find(params[:id]).destroy
-    redirect_to restaurants_path, notice: "Restaurant was successfully burned to the ground. Fire Department investigators are currently probing for signs of arson and preparing to take any necessary actions. Your IP address has been logged, your FaceTime camera activated, and geolocation sequence initiated."
+    redirect_to restaurants_path
+    flash[:error] = "Restaurant was successfully burned to the ground. Fire Department investigators are currently probing for signs of arson and preparing to take any necessary actions. Your IP address has been logged, your FaceTime camera activated, and geolocation sequence initiated."
   end
 
 private
