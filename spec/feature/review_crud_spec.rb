@@ -46,4 +46,11 @@ feature 'Reviews CRUD' do
     expect(current_path).to eq reviews_path
   end
 
+  scenario 'anyone can see reviews', skip_before: true do
+    visit root_path
+    click_on 'Reviews'
+    click_on 'Review this Restaurant'
+    expect(page).to have_content('You must be logged in to do that, yo!')
+  end
+
 end
